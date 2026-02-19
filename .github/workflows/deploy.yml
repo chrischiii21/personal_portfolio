@@ -12,12 +12,13 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4 # Updated to the newest version for better performance
       
       - name: Deploy to Vercel
-        uses: vercel/action@master
+        uses: amondnet/vercel-action@v25 # Corrected action repository
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          vercel-args: '--prod' # Ensures pushes to main/master deploy as Production, not Preview
