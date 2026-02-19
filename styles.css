@@ -112,7 +112,7 @@ nav a:hover {
     margin-bottom: 18px;
 }
 
-.hero h3 {
+.hero h2 {
     color: var(--navy);
     font-size: 0.78rem;
     font-weight: 600;
@@ -122,7 +122,7 @@ nav a:hover {
     line-height: 1.6;
 }
 
-.hero h4 {
+.hero h3 {
     color: var(--text-secondary);
     font-size: 0.975rem;
     font-weight: 400;
@@ -362,7 +362,7 @@ footer {
     gap: 8px;
 }
 
-.field h4 {
+.field label {
     color: rgba(255, 255, 255, 0.9);
     font-size: 0.75rem;
     font-weight: 600;
@@ -444,7 +444,7 @@ footer {
     flex-wrap: wrap;
 }
 
-.foot h6 {
+.foot p {
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.85rem;
     font-weight: 400;
