@@ -300,34 +300,6 @@ footer {
     align-items: flex-start;
 }
 
-.email-contact::before {
-    content: "✉";
-    font-size: 1.5rem;
-    color: #5dd06a;
-    flex-shrink: 0;
-}
-
-.linkedin-contact::before {
-    content: "📍";
-    font-size: 1.5rem;
-    color: #5dd06a;
-    flex-shrink: 0;
-}
-
-.git-contact::before {
-    content: "☎";
-    font-size: 1.5rem;
-    color: #5dd06a;
-    flex-shrink: 0;
-}
-
-.address::before {
-    content: "📍";
-    font-size: 1.5rem;
-    color: #5dd06a;
-    flex-shrink: 0;
-}
-
 .email-contact > div,
 .linkedin-contact > div,
 .git-contact > div,
@@ -344,7 +316,7 @@ footer {
     margin-bottom: 4px;
 }
 
-.contacts h5 {
+.contacts a, .contacts h5 {
     color: rgba(255, 255, 255, 0.85);
     font-size: 0.9rem;
     font-weight: 400;
@@ -420,7 +392,7 @@ footer {
 .field input:focus,
 .field textarea:focus {
     outline: none;
-    border-bottom-color: #5dd06a;
+    border-bottom-color: rgba(93, 208, 106, 0.6);
     background: rgba(93, 208, 106, 0.05);
 }
 
@@ -434,7 +406,7 @@ footer {
     padding: 12px 32px;
     border-radius: 8px;
     border: none;
-    background: #5dd06a;
+    background: rgba(93, 208, 106, 0.85);
     color: #0d2b4e;
     font-family: 'DM Sans', sans-serif;
     font-weight: 700;
@@ -443,20 +415,63 @@ footer {
     letter-spacing: 1.2px;
     text-transform: uppercase;
     transition: background var(--ease), box-shadow var(--ease), transform var(--ease);
-    box-shadow: 0 4px 16px rgba(93, 208, 106, 0.3);
+    box-shadow: 0 4px 16px rgba(93, 208, 106, 0.25);
     width: fit-content;
     margin-top: 8px;
 }
 
 .submit:hover {
-    background: #4dc458;
-    box-shadow: 0 8px 24px rgba(93, 208, 106, 0.4);
+    background: #5dd06a;
+    box-shadow: 0 8px 24px rgba(93, 208, 106, 0.35);
     transform: translateY(-2px);
 }
 
 .submit:active {
     transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(93, 208, 106, 0.3);
+    box-shadow: 0 2px 8px rgba(93, 208, 106, 0.25);
+}
+
+/* ── FOOTER BOTTOM ─────────────────────────────────── */
+
+.foot {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.foot h6 {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    margin: 0;
+}
+
+.foot a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    text-decoration: none;
+    transition: background var(--ease), color var(--ease), border-color var(--ease), transform var(--ease);
+    font-size: 1.1rem;
+}
+
+.foot a:hover {
+    color: #5dd06a;
+    background: rgba(93, 208, 106, 0.15);
+    border-color: rgba(93, 208, 106, 0.3);
+    transform: translateY(-3px);
 }
 
 /* ── ANIMATION ───────────────────────────────────────── */
@@ -517,5 +532,16 @@ footer {
     
     .field-container {
         grid-template-columns: 1fr;
+    }
+
+    .foot {
+        margin-top: 40px;
+        gap: 16px;
+    }
+
+    .foot h6 {
+        font-size: 0.8rem;
+        width: 100%;
+        text-align: center;
     }
 }
