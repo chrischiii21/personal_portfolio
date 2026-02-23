@@ -83,6 +83,39 @@ nav a:hover {
     background: rgba(26,84,144,0.08);
 }
 
+/* ── HAMBURGER MENU ──────────────────────────────────── */
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 101;
+}
+
+.hamburger span {
+    width: 24px;
+    height: 2.5px;
+    background: var(--navy);
+    border-radius: 2px;
+    transition: all var(--ease);
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
 /* ── HERO ────────────────────────────────────────────── */
 
 .hero {
@@ -216,7 +249,7 @@ nav a:hover {
 
 /* ── ABOUT ───────────────────────────────────────────── */
 
-.about {
+.about, .skills {
     max-width: 100%;
     margin: 50px;
     padding: 56px 64px;
@@ -227,7 +260,7 @@ nav a:hover {
     animation: fadeUp 0.6s 0.25s ease both;
 }
 
-.about h2 {
+.about h2, .skills h2 {
     font-family: 'DM Serif Display', serif;
     color: var(--navy-deep);
     font-size: 1.9rem;
@@ -245,6 +278,75 @@ nav a:hover {
     font-weight: 400;
     line-height: 1.85;
 }
+
+/* ── SKILLS ──────────────────────────────────────────── */
+
+.skillcard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    padding: 40px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--ease);
+    animation: fadeUp 0.6s 0.3s ease both;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.card:hover {
+    cursor: pointer;
+    border-color: var(--navy);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+}
+
+.card h3 {
+    font-family: 'DM Serif Display', serif;
+    color: var(--navy-deep);
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: -0.3px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgba(26, 84, 144, 0.15);
+}
+
+.card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card li {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.6;
+    padding-left: 20px;
+    position: relative;
+}
+
+.card li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--navy);
+    font-weight: 600;
+}
+
 
 /* ── FOOTER ──────────────────────────────────────────── */
 
@@ -485,7 +587,41 @@ footer {
 
 @media (max-width: 960px) {
     header { padding: 0 24px; }
-    nav a { font-size: 0.78rem; padding: 5px 9px; }
+    
+    .hamburger { display: flex; }
+    
+    .nav-menu {
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        flex-direction: column;
+        gap: 0;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--border);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height var(--ease);
+    }
+    
+    .nav-menu.active {
+        max-height: 400px;
+    }
+    
+    .nav-menu a { 
+        padding: 12px 24px;
+        border-radius: 0;
+        font-size: 0.85rem;
+        width: 100%;
+        border-bottom: 1px solid rgba(26, 84, 144, 0.05);
+        display: block;
+    }
+    
+    .nav-menu a:last-child {
+        border-bottom: none;
+    }
 
     .hero {
         grid-template-columns: 1fr;
@@ -500,7 +636,11 @@ footer {
 
     .hero h4 { max-width: 100%; }
     .hero .container { padding: 48px 32px; }
-    .about { margin: 40px 20px; padding: 40px 32px; }
+    .about, .skills { margin: 40px 20px; padding: 40px 32px; }
+    
+    .skillcard {
+        grid-template-columns: 1fr;
+    }
     
     .concontainer {
         grid-template-columns: 1fr;
@@ -510,16 +650,29 @@ footer {
 }
 
 @media (max-width: 600px) {
+    header { gap: 8px; }
     header h2 { font-size: 1.1rem; }
-    nav { gap: 2px; }
-    nav a { font-size: 0.72rem; padding: 5px 7px; }
+    
+    .hamburger span {
+        width: 20px;
+        height: 2px;
+    }
+    
+    .nav-menu a { 
+        padding: 14px 20px;
+        font-size: 0.9rem;
+    }
 
     .buttons { flex-direction: column; }
     .buttons button { width: 100%; text-align: center; }
 
     .hero .title { padding: 40px 24px; }
     .hero .container { padding: 36px 24px; }
-    .about { padding: 32px 24px; }
+    .about, .skills { padding: 32px 24px; }
+    
+    .card {
+        padding: 28px 24px;
+    }
     
     footer { padding: 60px 0; }
     .concontainer { 

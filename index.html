@@ -16,7 +16,7 @@
 <body>
     <header>
         <h2>Personal Portfolio</h2>
-        <nav>
+        <nav class="nav-menu">
             <a>Home</a>
             <a>About</a>
             <a>Skills</a>
@@ -24,6 +24,11 @@
             <a>Experience</a>
             <a>Contact</a>
         </nav>
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
     <main>
         <section class="hero">
@@ -51,45 +56,82 @@
                 As a student leader and aspiring IT professional, I enjoy creating systems that improve productivity and security. My interests include full-stack web development, IoT systems, automation, and user-centered design.
                 With experience in handling technical projects and leading organizations, I value discipline, innovation, and continuous learning. My goal is to become a highly competent IT professional who builds impactful and sustainable technology solutions.</h3>
         </section>
+        <section class="skills">
+            <h2>Skills</h2>
+            <div class="skillcard">
+                <div class="card">
+                    <h3>Technical Skills</h3>
+                    <ul>
+                        <li>HTML5, CSS3, JavaScript</li>
+                        <li>PHP & MySQL</li>
+                        <li>ESP8266 / ESP32</li>
+                        <li>Arduino & IoT Systems</li>
+                        <li>Networking Fundamentals</li>
+                        <li>Database Design</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Tools & Technologies</h3>
+                    <ul>
+                        <li>Git & GitHub</li>
+                        <li>VS Code</li>
+                        <li>Figma</li>
+                        <li>XAMPP</li>
+                        <li>Packet Tracer</li>
+                        <li>Canva</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Leadership</li>
+                        <li>Public Speaking</li>
+                        <li>Project Management</li>
+                        <li>Time Management</li>
+                        <li>Problem Solving</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </main>
     <footer>
         <div class="concontainer">
-        <div class="contacts">
-            <h2>Christy G. Montejo</h2>
-            <h3>“I believe technology should not only function efficiently but also create meaningful impact in people’s lives.”</h3>
-            <div class="email-contact">
-                <h4>Call Me</h4>
-                <a>+639 76 072 1404</a>
-            </div>
-            <div class="git-contact">
-                <h4>Find Me</h4>
-                <h5>Cancainap Argao, Cebu, Philippines 6021</h5>
-            </div>
-            <div class="address">
-                <h4>Send Email</h4>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=christymontejo2003@gmail.com">christymontejo2003@gmail.com</a>
-            </div>
-        </div>
-        <div class="get-in-touch">
-            <h2>Get in touch.</h2>
-            <div class="field-container">
-                <div class="field">
-                    <label>Full Name *</label>
-                    <input type="text" placeholder="Enter full name" required>
+            <div class="contacts">
+                <h2>Christy G. Montejo</h2>
+                <h3>“I believe technology should not only function efficiently but also create meaningful impact in people’s lives.”</h3>
+                <div class="email-contact">
+                    <h4>Call Me</h4>
+                    <a>+639 76 072 1404</a>
                 </div>
-                <div class="field">
-                    <label>Email Address *</label>
-                    <input type="email" placeholder="Enter email" required>
+                <div class="git-contact">
+                    <h4>Find Me</h4>
+                    <h5>Cancainap Argao, Cebu, Philippines 6021</h5>
+                </div>
+                <div class="address">
+                    <h4>Send Email</h4>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=christymontejo2003@gmail.com">christymontejo2003@gmail.com</a>
                 </div>
             </div>
-            <div class="field-container">
-                <div class="field">
-                    <label>Message</label>
-                    <input type="text" placeholder="Type here...">
+            <div class="get-in-touch">
+                <h2>Get in touch.</h2>
+                <div class="field-container">
+                    <div class="field">
+                        <label>Full Name *</label>
+                        <input type="text" placeholder="Enter full name" required>
+                    </div>
+                    <div class="field">
+                        <label>Email Address *</label>
+                        <input type="email" placeholder="Enter email" required>
+                    </div>
                 </div>
+                <div class="field-container">
+                    <div class="field">
+                        <label>Message</label>
+                        <input type="text" placeholder="Type here...">
+                    </div>
+                </div>
+                <button class="submit">Submit</button>
             </div>
-            <button class="submit">Submit</button>
-        </div>
         </div>
         <div class="foot">
             <p>© 2026 Christy Montejo. All rights reserved.</p>
@@ -112,5 +154,22 @@
                 </a>
         </div>
     </footer>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when a nav link is clicked
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
